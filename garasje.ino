@@ -82,6 +82,15 @@ void loop()
 
     client.publish(TEMPERATURE_TOPIC, String(temperature).c_str()); // Publish temperature to the temperature value topic
     client.publish(HUMIDITY_TOPIC, String(humidity).c_str());       // Publish humidity to the humidity value topic
+
+    //Kjøre port opp eller ned dersom det mottas fra MQTT på topicet PORTKONTROLL
+    if (strcmp(topic, PORTKONTROLL) == 1)
+    {
+        // Sette en utgang for å kjøre porten for så å sette topic tilbake til 0
+        
+        delay(2000);
+        client.publish(PORTKONTROLL, 0);
+    }
 }
 
 void reconnect()
@@ -93,7 +102,7 @@ void reconnect()
     { //Connect to MQTT server
       Serial.println("connected");
       client.publish(AVAILABILITY_TOPIC, "online"); // Once connected, publish online to the availability topic
-      client.subscribe(TARE_TOPIC);                 //Subscribe to tare topic for remote tare
+      client.subscribe(PORTKONTROLL);                 //Subscribe to tare topic for remote tare
     }
     else
     {
