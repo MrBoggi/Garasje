@@ -1,0 +1,17 @@
+// Wifi Settings
+#define SSID                          "Hemma"
+#define PASSWORD                      "ringvattnet"
+
+// MQTT Settings
+#define HOSTNAME                      "beer_1"
+#define MQTT_SERVER                   "192.168.8.125"
+#define PORT_TOPIC                    "garasje/garasjeport"
+#define TEMPERATURE_TOPIC             "garasje/temperature"
+#define HUMIDITY_TOPIC                "garasje/humidity"
+#define mqtt_username                 "mqtt"
+#define mqtt_password                 "sakris16"
+
+// DHT Settings
+constexpr auto DHT_PIN = 4;            // Remember these are ESP GPIO pins, they are not the physical pins on the board. 
+#define DHT_TYPE DHT22                 // DHT11 or DHT22
+constexpr auto sendDHTDataDelay = 500ul; // Delay between sending data over MQTT
