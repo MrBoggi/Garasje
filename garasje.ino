@@ -88,6 +88,7 @@ void loop()
     {
         // Sette en utgang for å kjøre porten for så å sette topic tilbake til 0
         
+        //Kode for å starte port
         delay(2000);
         client.publish(PORTKONTROLL, 0);
     }
